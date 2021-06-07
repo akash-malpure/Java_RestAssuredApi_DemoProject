@@ -1,3 +1,4 @@
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
@@ -20,7 +21,17 @@ public class TC_001_GET_Request {
 		Response response = httprequest.request(Method.GET,"?q=pune&appid=71d8b45560191d907ba6ce75041ad9f4");
 		
 // 	 	Print response on console
-		System.out.println("Response Body asString(): "+response.getBody().asString());
+		System.out.println("Response Body is: "+response.getBody().asString());
+		
+//      Status code verification
+		int statusCode = response.getStatusCode();
+		System.out.println("Status code is: "+statusCode);
+		Assert.assertEquals(statusCode, 200);
+		
+//      Status line verification	
+		String statusLine = response.getStatusLine();
+		System.out.println("Status line is: " +statusLine);
+		Assert.assertEquals(statusLine, "HTTP/1.1 200 OK");
 	}
 	
 }
