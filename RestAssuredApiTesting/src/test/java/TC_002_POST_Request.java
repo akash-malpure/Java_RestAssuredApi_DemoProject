@@ -25,7 +25,7 @@ public class TC_002_POST_Request {
 		params.put("id",3);
 		params.put("body","Creating second comment via Java");
 		params.put("postId",3);
-		
+	
 //      Step 4: Specifying the content Type of the request 
 		httpRequest.header("Content-Type","application/json");
 		
